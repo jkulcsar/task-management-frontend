@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class BaseHttpService {
-  BASE_URL = process.env.BASE_URL;
+  REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
   _accessToken = null;
 
   constructor(routerStore) {
@@ -10,25 +10,25 @@ export default class BaseHttpService {
 
   async get(endpoint, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.get(`${this.BASE_URL}/${endpoint}`, options)
+    return axios.get(`${this.REACT_APP_BASE_URL}/${endpoint}`, options)
       .catch(error => this._handleHttpError(error));
   }
 
   async post(endpoint, data = {}, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.post(`${this.BASE_URL}/${endpoint}`, data, options)
+    return axios.post(`${this.REACT_APP_BASE_URL}/${endpoint}`, data, options)
       .catch(error => this._handleHttpError(error));  
   }
 
   async delete(endpoint, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.delete(`${this.BASE_URL}/${endpoint}`, options)
+    return axios.delete(`${this.REACT_APP_BASE_URL}/${endpoint}`, options)
       .catch(error => this._handleHttpError(error));     
   }
 
   async patch(endpoint, data = {}, options = {}) {
     Object.assign(options, this._getCommonOptions());
-    return axios.patch(`${this.BASE_URL}/${endpoint}`, data, options)
+    return axios.patch(`${this.REACT_APP_BASE_URL}/${endpoint}`, data, options)
       .catch(error => this._handleHttpError(error));   
   }
 
