@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+      "task-management-backend": {
+        "matchCondition": {
+          "route": "/api/"
+        },
+        "backendUri": "%BACKEND_URL%/api"
+      }
+    }
+  }
